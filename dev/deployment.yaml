@@ -16,4 +16,4 @@ spec:
       - name: myapp
         image: lucatomasko/m324:latest
         ports:
-        - containerPort: 8085
+        - containerPort: 8081

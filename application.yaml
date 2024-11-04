@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/LucaTomasko/M324_Pipeline.git
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: https://172.31.0.10:16443
+    namespace: myapp
+    
+  syncPolicy:
+    syncOption:
+    - CreateNamespace=true
+    
+    automated:
+      selfHeal: true
+      prune: true
